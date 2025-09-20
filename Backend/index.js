@@ -1,7 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
-const taksRoutes = require('./routes/taskRoutes')
+const taskRoutes = require('./routes/taskRoutes')
 const { default: mongoose } = require('mongoose');  
 
 const PORT = process.env.PORT;
@@ -11,19 +11,21 @@ const server = express();
 
 //handle cors for different source access
 server.use(cors({
-  origin: [""], // your frontend domain
-  methods: ["GET", "POST", "DELETE"],
+  origin: ["http://localhost:5174"], // your frontend domain
+  methods: ["GET", "POST", "DELETE","PATCH"],
   credentials: true
 }));
 
 //universal middleware
 server.use(express.json());
 
-server.use('/',taksRoutes)
+server.use('/tasks',taskRoutes)
 
  const dbName = process.env.DB_NAME;
  const dbPort = process.env.DB_PORT;
  const dbHost = process.env.DB_HOST;
+
+
 mongoose.connect(`${dbHost}:${dbPort}/${dbName}`,{
   useNewUrlParser: true,
   useUnifiedTopology: true,
