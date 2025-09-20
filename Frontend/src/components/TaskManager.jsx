@@ -4,7 +4,9 @@ import { Box, Typography } from "@mui/material";
 import axios from "axios";
 import TaskTable from "./TaskTable";
 import TaskModal from "./TaskModal";
-import { LoadingIndicator } from "./LoadingIndicator";
+import { Fab } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import { LoadingIndicator } from "./LocadingIndicator";
 
 export const TaskManager = () => {
   const [tasks, setTasks] = useState([]);
@@ -157,16 +159,19 @@ export const TaskManager = () => {
         file={file}
         isEditing={isEditing}
       />
-      <button
-        onClick={handleAddClick}
-        style={{
-          position: "absolute",
-          bottom: 16,
-          right: 16,
-        }}
-      >
-        Add Task
-      </button>
+      
+        <Fab
+            aria-label="add"
+            color="primary"
+            onClick={handleAddClick}
+            style={{
+                position: "absolute",
+                bottom: 16,
+                right: 16,
+            }}
+        >
+            <AddIcon />
+        </Fab>
     </div>
   );
 };
