@@ -4,7 +4,7 @@ const {
   createTask,
   updateTask,
   deleteTask,
-} = require("../controllers/task.controller");
+} = require("../controllers/taskControllers");
 
 const upload = require ('../config/multerConfig')
 const router = require("express").Router();

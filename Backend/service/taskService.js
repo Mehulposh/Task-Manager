@@ -1,5 +1,5 @@
 
-const Task = require("../models/task.model");
+const Task = require("../model/TaskModel");
 
 class TaskService {
   find = async () => {
@@ -26,4 +26,4 @@ class TaskService {
   };
 }
 
-module.exports = TaskService;z
+module.exports = TaskService;
